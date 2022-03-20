@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Airport } from '../airport';
+import { AirportService } from '../services/airport.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +10,18 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  myAirports : Airport [];
+
+  constructor(private router: Router,
+              private airportService: AirportService) {
+  }
+
+  ngOnInit() {
+    this.myAirports= this.airportService.newAirportsList;
+  }
+
+  addNew() {
+    this.router.navigateByUrl("/add-airport")
+  }
 
 }

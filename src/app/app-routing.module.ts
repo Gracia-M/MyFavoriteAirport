@@ -10,7 +10,15 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'airport',
+    loadChildren: () => import('./airport/airport.module').then( m => m.AirportPageModule)
   },
+  {
+    path: 'add-airport',
+    loadChildren: () => import('./add-airport/add-airport.module').then( m => m.AddAirportPageModule)
+  },
+
 ];
 
 @NgModule({
