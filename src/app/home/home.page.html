@@ -9,15 +9,15 @@
 <ion-content [fullscreen]="true">
   <ion-grid>
     <ion-row>
-      <ion-col size="8" *ngFor="let anAirport of myAirports ">
-        <span>{{anAirport.code}}</span>
-        <span>{{anAirport.name}}</span>
-
+      <ion-col size="6" *ngFor="let anAirport of myAirports ">
         <ion-img class="airPic" *ngIf="anAirport.picture"
-        [src]="anAirport.picture.webViewPath"></ion-img>
+        [src]="anAirport.picture.webViewPath"></ion-img> <br>
+        <span> <strong>{{anAirport.code}},</strong></span>
+        <span>&nbsp; {{anAirport.name}}</span> <br> <br>
           <a [routerLink] = "['/airport/detail' , anAirport.id]">
-            <strong>Click here for more details</strong> 
+            Click here for more details 
           </a>
+          <br> <br> <br>
       </ion-col>
     </ion-row>
   </ion-grid>

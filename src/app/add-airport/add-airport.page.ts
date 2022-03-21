@@ -25,12 +25,12 @@ export class AddAirportPage implements OnInit {
   }
 
   async onAddPicture() {
-    this.myPicture = await this.pictureService.getNewPhoto()
+    this.myPicture = await this.pictureService.getNewPhoto();
 
   }
 
   async onAddPosition() {
-    this.myLocation = await this.locationService.getMyLocation()
+    this.myLocation = await this.locationService.getMyLocation();
 
   }
 
@@ -51,7 +51,7 @@ export class AddAirportPage implements OnInit {
       this.router.navigateByUrl('/home');
 
     }else {
-      alert('Tous les champs sont obligatoires !');
+      alert('All fields are mandatory !');
     }
   }
 

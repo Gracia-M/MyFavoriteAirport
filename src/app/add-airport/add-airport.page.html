@@ -1,9 +1,57 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>addAirport</ion-title>
+    <ion-title>New Airport</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form #airportForm="ngForm" (ngSubmit)="onAddAirport(airportForm)" novalidate>
+    <ion-item>
+      <ion-label>Code: </ion-label>
+      <input type="text" name="myCode" ngModel required #myCode="ngModel">
+    </ion-item>
+    <ion-item>
+      <ion-label>Name: </ion-label>
+      <input type="text" name="myName" ngModel required #myName="ngModel">
+    </ion-item>
+    <ion-item>
+      <ion-label>City: </ion-label>
+      <input type="text" name="myCity" ngModel required #myCity="ngModel">
+    </ion-item>
+    <ion-item>
+      <ion-label>Country: </ion-label>
+      <input type="text" name="myCountry" ngModel required #myCountry="ngModel">
+    </ion-item>
+    <ion-item>
+      <ion-label>Picture: </ion-label>
+      <ion-button type="button" (click)="onAddPicture()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-button>
+  </ion-item>
+  <ion-item>
+      <ion-label>Description: </ion-label>
+      <textarea name="myDescription"
+                placeholder="description ici..." 
+                required 
+                ngModel 
+                #myDescription="ngModel">
+      </textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label>Position: </ion-label>
+    <ion-button (click)="onAddPosition()">Register position</ion-button>
+  </ion-item>
+    
+  <ion-item *ngIf="myLocation">
+    <ion-label>Latitude: {{myLocation.lati}}</ion-label>
+  </ion-item>
+  <ion-item *ngIf="myLocation">
+    <ion-label>Longitude: {{myLocation.longi}}</ion-label>
+  </ion-item>
+  <ion-item>
+      <ion-button type="submit">Register</ion-button>
+  </ion-item>
+
+  </form>
 
 </ion-content>

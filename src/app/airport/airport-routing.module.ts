@@ -5,7 +5,7 @@ import { AirportPage } from './airport.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'detail/:id',
     component: AirportPage
   }
 ];

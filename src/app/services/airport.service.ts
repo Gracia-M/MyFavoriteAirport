@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { AddAirportOptions, Airport, AirportsList } from '../airport';
+import { AddAirportOptions, Airport, airportsList } from '../airport';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AirportService {
 
-  public newAirportsList: Airport[] = AirportsList.slice();
+  public newAirportsList: Airport[] = airportsList.slice();
 
   constructor() { }
 
@@ -22,7 +22,7 @@ export class AirportService {
       country: newAirport.country,
       picture: newAirport.picture,
       description: newAirport.description,
-      location: newAirport.location,
+      location: newAirport.location
     };
 
     this.newAirportsList.push(addedAirport);
