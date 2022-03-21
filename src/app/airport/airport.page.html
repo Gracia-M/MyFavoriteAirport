@@ -11,11 +11,14 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-img class="airPic" *ngIf="myAirport.picture"
-      [src]="myAirport.picture.webViewPath">
-      </ion-img> <br> 
-      <span><strong>{{myAirport.code}}, &nbsp;{{myAirport.name}}</strong></span>
-      <ion-card-subtitle> <h3>{{myAirport.city}} - {{myAirport.country}}</h3></ion-card-subtitle>
+      <div>
+        <ion-img class="airPic" *ngIf="myAirport.picture"
+        [src]="myAirport.picture.webViewPath">
+        </ion-img> <br>
+        
+        <span><strong>{{myAirport.code}}, &nbsp;{{myAirport.name}}</strong></span>
+        <ion-card-subtitle> <h3>{{myAirport.city}} - {{myAirport.country}}</h3></ion-card-subtitle>
+    </div>
     </ion-card-header>
 
     <ion-card-content>

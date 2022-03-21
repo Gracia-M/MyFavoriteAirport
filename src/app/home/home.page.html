@@ -10,13 +10,16 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let anAirport of myAirports ">
-        <ion-img class="airPic" *ngIf="anAirport.picture"
-        [src]="anAirport.picture.webViewPath"></ion-img> <br>
-        <span> <strong>{{anAirport.code}},</strong></span>
-        <span>&nbsp; {{anAirport.name}}</span> <br> <br>
-          <a [routerLink] = "['/airport/detail' , anAirport.id]">
-            Click here for more details 
-          </a>
+        <div class="airPic">
+          <ion-img  *ngIf="anAirport.picture"
+          [src]="anAirport.picture.webViewPath"></ion-img> <br>
+          <span> <strong>{{anAirport.code}},</strong></span>
+          <span> {{anAirport.name}}</span> <br> <br>
+            <a [routerLink] = "['/airport/detail' , anAirport.id]">
+              Click here for more details 
+            </a>
+        </div>
+        
           <br> <br> <br>
       </ion-col>
     </ion-row>

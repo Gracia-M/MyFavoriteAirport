@@ -27,8 +27,12 @@
       <ion-button type="button" (click)="onAddPicture()">
         <ion-icon name="camera"></ion-icon>
       </ion-button>
-  </ion-item>
-  <ion-item>
+      <ion-item  *ngIf="myPicture">
+         <ion-img class="upload" [src]="myPicture.webViewPath"></ion-img>
+      </ion-item>
+     
+    </ion-item>
+    <ion-item>
       <ion-label>Description: </ion-label>
       <textarea name="myDescription"
                 placeholder="description ici..." 

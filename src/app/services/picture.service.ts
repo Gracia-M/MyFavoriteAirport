@@ -13,13 +13,13 @@ export class PictureService {
 
   public async getNewPhoto() {
 
-    const photoPrise = await Camera.getPhoto( {
+    const takenPicture = await Camera.getPhoto( {
       source : CameraSource.Camera,
       resultType : CameraResultType.Uri,
       quality: 100
     });
 
-    const savedImage = await this.savePicture(photoPrise);
+    const savedImage = await this.savePicture(takenPicture);
 
     return {
       filePath : savedImage.filePath,
@@ -27,9 +27,20 @@ export class PictureService {
     };
 
   }
+  public async readPhotoDataBase64(aPath: string){
 
+    // console.log("reading path: " + aPath)
+    const readFile = await Filesystem.readFile(
+      {
+        path: aPath,
+        directory: Directory.Data
+      }
+    );
 
-private async savePicture(aPhoto: Photo){
+    return `data:image/jpeg;base64,${readFile.data}`;
+  }
+
+  private async savePicture(aPhoto: Photo){
     //convert photo to base64 format, required by Filesystem API
     const base64Data = await this.readAsBase64(aPhoto);
     //Write file to data directory
@@ -41,6 +52,7 @@ private async savePicture(aPhoto: Photo){
       directory: Directory.Data
       }
     );
+
     if(this.platform.is('hybrid')){
         // Will later Display the new image by rewriting the 'file://' path to HTTP
         // Details: https://ionicframework.com/docs/building/webview#file-protocol
@@ -57,6 +69,7 @@ private async savePicture(aPhoto: Photo){
       } ;
     }
   }
+
   private async readAsBase64(aPhoto: Photo) {
     //"hybrid" will detect capacitor / cordova - native runtimes
     if(this.platform.is('hybrid')){
@@ -75,7 +88,6 @@ private async savePicture(aPhoto: Photo){
           return await this.convertBlobToBase64(blob) as string;
     }
 
-
   }
 
   private convertBlobToBase64 = (blob: Blob) =>  new Promise((resolve, reject) => {
@@ -87,4 +99,5 @@ private async savePicture(aPhoto: Photo){
           reader.readAsDataURL(blob);
       }
   );
+
 }

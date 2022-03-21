@@ -12,7 +12,6 @@ export interface Airport {
 export interface UserPhoto {
     filePath: string;
     webViewPath: string;
-
 }
 
 export interface UserLocation {

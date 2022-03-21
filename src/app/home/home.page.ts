@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Airport } from '../airport';
 import { AirportService } from '../services/airport.service';
@@ -8,9 +8,9 @@ import { AirportService } from '../services/airport.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-  myAirports : Airport [];
+  myAirports: Airport [];
 
   constructor(private router: Router,
               private airportService: AirportService) {
@@ -18,10 +18,15 @@ export class HomePage {
 
   ngOnInit() {
     this.myAirports= this.airportService.newAirportsList;
+    // this.loadAirports();
   }
+  // async loadAirports() {
+  //   await this.airportService.loadSavedAirports();
+
+  // }
 
   addNew() {
-    this.router.navigateByUrl("/add-airport")
+    this.router.navigateByUrl('/add-airport');
   }
 
 }
