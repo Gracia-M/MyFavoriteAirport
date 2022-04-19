@@ -17,13 +17,13 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
-    this.myAirports= this.airportService.newAirportsList;
-    // this.loadAirports();
+    this.loadAirports();
   }
-  // async loadAirports() {
-  //   await this.airportService.loadSavedAirports();
+  async loadAirports() {
+    await this.airportService.loadSavedAirports();
 
-  // }
+    this.myAirports= this.airportService.newAirportsList;
+  }
 
   addNew() {
     this.router.navigateByUrl('/add-airport');

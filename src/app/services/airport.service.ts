@@ -11,7 +11,7 @@ import { PictureService } from './picture.service';
 })
 export class AirportService {
 
-  public newAirportsList: Airport[] = airportsList.slice();
+  public newAirportsList: Airport[];
   // eslint-disable-next-line @typescript-eslint/naming-convention
   public AIRPORT_STORAGE_PACKAGE: string = 'drower';
 
@@ -55,14 +55,14 @@ export class AirportService {
     console.log('chargement...');
     console.log(airportsJson);
 
-    this.newAirportsList = JSON.parse(airportsJson.value);
+    this.newAirportsList = JSON.parse(airportsJson.value) || airportsList.slice();
     console.log(airportsJson);
     if(!this.platform.is('hybrid')){
 
       // eslint-disable-next-line prefer-const
       for(let anAirport of this.newAirportsList){
         console.log(JSON.stringify(anAirport));
-        if(anAirport.picture){
+        if(anAirport.picture && anAirport.picture.filePath){
           const picFilePath= anAirport.picture.filePath;
 
           // console.log("pancakeService - picture file path: " +picFilePath);

@@ -10,7 +10,7 @@ export interface Airport {
 }
 
 export interface UserPhoto {
-    filePath: string;
+    filePath?: string;
     webViewPath: string;
 }
 
@@ -37,7 +37,6 @@ export const airportsList = [
         city: 'Doha',
         country:'Qatar',
         picture: {
-            filePath:'https://live.staticflickr.com/3856/14889141487_1cc7a75c8b_b.jpg',
             webViewPath:'https://live.staticflickr.com/3856/14889141487_1cc7a75c8b_b.jpg'
         },
         // eslint-disable-next-line max-len
@@ -55,7 +54,6 @@ export const airportsList = [
         city: 'Dubai',
         country: 'United Arab Emirates',
         picture: {
-            filePath:'https://live.staticflickr.com/3721/12340318753_a4d936ce7e_b.jpg',
             webViewPath:'https://live.staticflickr.com/3721/12340318753_a4d936ce7e_b.jpg'
         },
         // eslint-disable-next-line max-len
@@ -73,7 +71,6 @@ export const airportsList = [
         city: 'Singapore',
         country: 'Singapore',
         picture: {
-            filePath:'https://i.pinimg.com/originals/fe/34/11/fe34116ec730cdf5b36e910ac73ae49a.jpg',
             webViewPath:'https://i.pinimg.com/originals/fe/34/11/fe34116ec730cdf5b36e910ac73ae49a.jpg'
         },
         // eslint-disable-next-line max-len
@@ -91,7 +88,6 @@ export const airportsList = [
         city: 'London',
         country: 'England',
         picture: {
-            filePath:'https://i.dailymail.co.uk/i/pix/2014/10/21/1413878984792_wps_5_D43X4X_The_inside_of_Heat.jpg',
             webViewPath:'https://i.dailymail.co.uk/i/pix/2014/10/21/1413878984792_wps_5_D43X4X_The_inside_of_Heat.jpg',
         },
         description:'The major international airport in London and the busiest airport in United Kingdom. ',
